@@ -1,5 +1,3 @@
-+24% to Damage over Time Multiplier
-+25% to Damage over Time Multiplier
-+26% to Damage over Time Multiplier
-+1 to Level of all Spell Skill Gems
-+1 to Level of all Fire Spell Skill Gems
+Prefix Modifier "Magister's"
+Prefix Modifier "Flame Shaper's"
+Suffix Modifier "of Dissolution" (Tier: 1)
