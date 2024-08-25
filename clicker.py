@@ -38,6 +38,8 @@ def check_click_with_regex(item, regex):
     keyboard.send("ctrl+alt+c")
     time.sleep(0.1)
     clip = clipboard.paste()
+    with open("log.txt", 'a') as f:
+        f.write(clip)
     for reg in regex:
         if reg in clip:
             return True
@@ -71,7 +73,9 @@ if __name__ == '__main__':
     time.sleep(4)
     i = 0
     mn = check_min_amont(alt, aug)
-    while i < mn and i < 10:
+    while i < mn:
+        if keyboard.is_pressed("space"):
+            break
         loop_click(alt, aug, item)
         if check_click_with_regex(item, regex):
             break
