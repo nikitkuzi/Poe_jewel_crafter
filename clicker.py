@@ -14,16 +14,16 @@ def get_coords():
 
 def take(coords):
     mouse.move(*coords)
-    time.sleep(0.1)
+    time.sleep(0.05)
     mouse.right_click()
-    time.sleep(0.1)
+    time.sleep(0.05)
 
 
 def use(coords):
     mouse.move(*coords)
-    time.sleep(0.1)
+    time.sleep(0.05)
     mouse.click()
-    time.sleep(0.1)
+    time.sleep(0.05)
 
 
 def loop_click(alt, aug, item):
@@ -43,13 +43,20 @@ def check_click_with_regex(item, regex):
             return True
     return False
 
+
 def check_min_amont(*args):
     mn = 99999999
-    reg = re.Pattern()
+    reg = '(Stack Size: )\d.?\d*\/\d.?\d+'
     for item in args:
         mouse.move(*item)
+        time.sleep(0.1)
         keyboard.send("ctrl+c")
-
+        time.sleep(0.1)
+        size = re.search(reg, clipboard.paste()).group(0)
+        # Stack Size: 2,301/20
+        amount = int(size.split(":")[1].split('/')[0].replace(',', ''))
+        mn = min(mn, int(amount))
+    return mn
 
 
 if __name__ == '__main__':
@@ -62,6 +69,10 @@ if __name__ == '__main__':
     item = file['currency tab']['item']
 
     time.sleep(4)
-
-
-
+    i = 0
+    mn = check_min_amont(alt, aug)
+    while i < mn and i < 10:
+        loop_click(alt, aug, item)
+        if check_click_with_regex(item, regex):
+            break
+        i += 1
