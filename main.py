@@ -3,12 +3,11 @@ import random
 import clipboard
 import keyboard
 import mouse
-import pyautogui
 import time
 import re
 import requests
 
-PRICE_TRESHOLD = 70
+PRICE_TRESHOLD = 72
 
 def read_positions(filename):
     """Read inventory coordinates where:
@@ -97,7 +96,7 @@ def craft_jewel(amount):
             continue
 
 def check_price(passives=None):
-    url = "https://www.pathofexile.com/api/trade/search/Crucible"
+    url = "https://www.pathofexile.com/api/trade/search/Settlers"
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
         'POESESSID': '9533aa1d4d979bf05b44d210763f702a'
@@ -158,11 +157,11 @@ def format_jewel():
 
 if __name__ == "__main__":
     #setpos()
-    positions = read_positions("pos.txt")
-    amount_to_craft = 4
+    positions = read_positions("pos_1980.txt")
+    amount_to_craft = 5
     time.sleep(2)
-    fill_resonators()
-    fill_fossils()
-    craft_jewel(amount_to_craft)
+    # fill_resonators()
+    # fill_fossils()
+    # craft_jewel(amount_to_craft)
 
 
