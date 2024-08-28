@@ -29,8 +29,6 @@ def use(coords):
 def loop_click(alt, aug, item):
     take(alt)
     use(item)
-    take(aug)
-    use(item)
 
 
 def check_click_with_regex(item, regex):
@@ -48,7 +46,7 @@ def check_click_with_regex(item, regex):
 
 def check_min_amont(*args):
     mn = 99999999
-    reg = '(Stack Size: )\d.?\d*\/\d.?\d+'
+    reg = '(Stack Size: )\d,?\d*\/\d.?\d+'
     for item in args:
         mouse.move(*item)
         time.sleep(0.1)
@@ -76,7 +74,10 @@ if __name__ == '__main__':
     while i < mn:
         if keyboard.is_pressed("space"):
             break
-        loop_click(alt, aug, item)
+        loop_click(alt, item)
+        if check_click_with_regex(item, regex):
+            break
+        loop_click(aug, item)
         if check_click_with_regex(item, regex):
             break
         i += 1
