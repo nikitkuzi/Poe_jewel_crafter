@@ -84,11 +84,11 @@ def run_helmet_spam(alt, aug, items, regex):
         loop_click(alt, items[item])
         if check_click_with_regex(items[item], regex):
             item += 1
-            break
+            continue
         loop_click(aug, items[item])
         if check_click_with_regex(items[item], regex):
             item += 1
-            break
+            continue
         i += 1
 
 
@@ -105,7 +105,6 @@ if __name__ == '__main__':
     item_in_currency = file['currency tab']['item']
     pos_needed = ['pos0', 'pos2', 'pos5', 'pos7', 'pos10', 'pos12', 'pos15', 'pos17', 'pos20', 'pos22', 'pos25', 'pos27']
     items_in_inventory = [file['inventory'][pos] for pos in pos_needed]
-    print(items_in_inventory)
 
     time.sleep(4)
     print("start")
