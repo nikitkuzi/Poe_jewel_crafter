@@ -1,5 +1,8 @@
-//Prefix Modifier "Magister's"
-//Prefix Modifier "Flame Shaper's"
-//Suffix Modifier "of Dissolution" (Tier: 1)
+Prefix Modifier "Magister's"
+Prefix Modifier "Flame Shaper's"
+Suffix Modifier "of Dissolution" (Tier: 1)
 per 16 Intelligence
 per 10 Intelligence
+9% increased Intelligence
+10% increased Intelligence
++1 to Maximum Power Charges
