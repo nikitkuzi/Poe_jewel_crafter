@@ -34,7 +34,7 @@ def loop_click(currency, item):
 def check_click_with_regex(item, regex):
     mouse.move(*item)
     keyboard.send("ctrl+alt+c")
-    time.sleep(0.1)
+    time.sleep(0.15)
     clip = clipboard.paste()
     with open("log.txt", 'a') as f:
         f.write(clip)
@@ -84,10 +84,14 @@ def run_helmet_spam(alt, aug, items, regex):
         loop_click(alt, items[item])
         if check_click_with_regex(items[item], regex):
             item += 1
+            i+=1
+            time.sleep(1)
             continue
         loop_click(aug, items[item])
         if check_click_with_regex(items[item], regex):
             item += 1
+            i+=1
+            time.sleep(1)
             continue
         i += 1
 
@@ -103,9 +107,8 @@ if __name__ == '__main__':
     alt = file['currency tab']['alt']
     aug = file['currency tab']['aug']
     item_in_currency = file['currency tab']['item']
-    pos_needed = ['pos0', 'pos2', 'pos5', 'pos7', 'pos10', 'pos12', 'pos15', 'pos17', 'pos20', 'pos22', 'pos25', 'pos27']
+    pos_needed = ['pos0', 'pos2', 'pos10', 'pos12', 'pos20', 'pos22', 'pos30', 'pos32', 'pos40', 'pos42', 'pos50', 'pos52']
     items_in_inventory = [file['inventory'][pos] for pos in pos_needed]
-
     time.sleep(4)
     print("start")
     # run_alt_spam(alt, aug, item_in_currency, regex)
