@@ -5,8 +5,10 @@
 #per 10 Intelligence
 9(9-10)% increased Intelligence
 10(9-10)% increased Intelligence
-#to Maximum Power Charges
+to Maximum Power Charges
 #of the Polymath
+of the Genius
+of the Virtuoso
 #+(56–60) to Intelligence
 #+(50–61) to maximum Energy Shield
 #Seraphim's
