@@ -7,8 +7,7 @@
 10(9-10)% increased Intelligence
 to Maximum Power Charges
 #of the Polymath
-of the Genius
-of the Virtuoso
+#of the Genius
 #+(56–60) to Intelligence
 #+(50–61) to maximum Energy Shield
 #Seraphim's
