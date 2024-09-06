@@ -109,7 +109,8 @@ if __name__ == '__main__':
     aug = file['currency tab']['aug']
     item_in_currency = file['currency tab']['item']
     pos_needed = ['pos0', 'pos2', 'pos10', 'pos12', 'pos20', 'pos22', 'pos30', 'pos32', 'pos40', 'pos42', 'pos50', 'pos52']
-    # pos_needed = ['pos0', 'pos2', 'pos10', 'pos12', 'pos20']
+    # pos_needed = ['pos0', 'pos2', 'pos10', 'pos12', 'pos20', 'pos22', 'pos30', 'pos32', 'pos40', 'pos42', 'pos50']
+    # pos_needed = ['pos0', 'pos2', 'pos10']
     # pos_needed = ['pos0', 'pos2']
     items_in_inventory = [file['inventory'][pos] for pos in pos_needed]
     time.sleep(4)
