@@ -1,4 +1,5 @@
 import re
+import random
 
 import keyboard
 import mouse
@@ -13,14 +14,16 @@ def get_coords():
 
 
 def take(coords):
-    mouse.move(coords[0], coords[1])
+    dx, dy = random.randint(-5, 5), random.randint(-5, 5)
+    mouse.move(coords[0]+dx, coords[1]+dy)
     time.sleep(0.02)
     mouse.right_click()
     time.sleep(0.02)
 
 
 def use(coords):
-    mouse.move(coords[0], coords[1])
+    dx, dy = random.randint(-5, 5), random.randint(-5, 5)
+    mouse.move(coords[0]+dx, coords[1]+dy)
     time.sleep(0.02)
     mouse.click()
     time.sleep(0.02)
@@ -35,7 +38,7 @@ def check_click_with_regex(item, regex):
     mouse.move(item[0], item[1])
     time.sleep(0.05)
     keyboard.send("ctrl+alt+c")
-    time.sleep(0.11)
+    time.sleep(0.15)
     clip = clipboard.paste()
     with open("log.txt", 'a') as f:
         f.write(clip)
@@ -108,8 +111,8 @@ if __name__ == '__main__':
     alt = file['currency tab']['alt']
     aug = file['currency tab']['aug']
     item_in_currency = file['currency tab']['item']
-    pos_needed = ['pos0', 'pos2', 'pos10', 'pos12', 'pos20', 'pos22', 'pos30', 'pos32', 'pos40', 'pos42', 'pos50', 'pos52']
-    # pos_needed = ['pos0', 'pos2', 'pos10', 'pos12', 'pos20', 'pos22', 'pos30', 'pos32', 'pos40', 'pos42', 'pos50']
+    # pos_needed = ['pos0', 'pos2', 'pos10', 'pos12', 'pos20', 'pos22', 'pos30', 'pos32', 'pos40', 'pos42', 'pos50', 'pos52']
+    pos_needed = ['pos0','pos10','pos20','pos30','pos40','pos50']
     # pos_needed = ['pos0', 'pos2', 'pos10']
     # pos_needed = ['pos0', 'pos2']
     items_in_inventory = [file['inventory'][pos] for pos in pos_needed]
