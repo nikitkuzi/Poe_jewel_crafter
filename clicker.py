@@ -36,7 +36,8 @@ def loop_click(currency, item):
 
 
 def check_click_with_regex(item, regex):
-    mouse.move(item[0], item[1])
+    dx, dy = random.randint(-10, 10), random.randint(-10, 10)
+    mouse.move(item[0]+dx, item[1]+dy)
     time.sleep(0.1)
     keyboard.send("ctrl+alt+c")
     time.sleep(0.02)
