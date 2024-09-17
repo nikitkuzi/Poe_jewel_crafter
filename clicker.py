@@ -6,6 +6,7 @@ import mouse
 import time
 import json
 import clipboard
+import pyperclip
 
 
 def get_coords():
@@ -36,12 +37,14 @@ def loop_click(currency, item):
 
 def check_click_with_regex(item, regex):
     mouse.move(item[0], item[1])
-    time.sleep(0.02)
+    time.sleep(0.1)
     keyboard.send("ctrl+alt+c")
-    time.sleep(0.15)
-    clip = clipboard.paste()
+    time.sleep(0.02)
+    clip = pyperclip.paste()
+
     with open("log.txt", 'a') as f:
         f.write(clip)
+
     for reg in regex:
         if reg in clip:
             return True
@@ -60,6 +63,7 @@ def check_min_amont(*args):
         # Stack Size: 2,301/20
         amount = int(size.split(":")[1].split('/')[0].replace(',', ''))
         mn = min(mn, int(amount))
+        pyperclip.copy(" ")
     return mn
 
 
@@ -78,7 +82,7 @@ def run_alt_spam(alt, aug, item_in_currency, regex):
         i += 1
 
 
-def run_helmet_spam(alt, aug, items, regex):
+def run_inventory_spam(alt, aug, items, regex):
     item = 0
     i = 0
     mn = check_min_amont(alt, aug)
@@ -116,7 +120,7 @@ if __name__ == '__main__':
     # pos_needed = ['pos0', 'pos2', 'pos10']
     # pos_needed = ['pos0', 'pos2']
     items_in_inventory = [file['inventory'][pos] for pos in pos_needed]
-    time.sleep(4)
+    time.sleep(2)
     print("start")
-    # run_alt_spam(alt, aug, item_in_currency, regex)
-    run_helmet_spam(alt, aug, items_in_inventory, regex)
+    run_alt_spam(alt, aug, item_in_currency, regex)
+    # run_inventory_spam(alt, aug, items_in_inventory, regex)
