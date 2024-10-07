@@ -68,16 +68,16 @@ def check_min_amont(*args):
     return mn
 
 
-def run_alt_spam(alt, aug, item_in_currency, regex):
+def run_currency_spam(currency1, currency2, item_in_currency, regex):
     i = 0
-    mn = check_min_amont(alt, aug)
+    mn = check_min_amont(currency1, currency2)
     while i < mn:
         if keyboard.is_pressed("space"):
             break
-        loop_click(alt, item_in_currency)
+        loop_click(currency1, item_in_currency)
         if check_click_with_regex(item_in_currency, regex):
             break
-        loop_click(aug, item_in_currency)
+        loop_click(currency2, item_in_currency)
         if check_click_with_regex(item_in_currency, regex):
             break
         i += 1
@@ -115,15 +115,19 @@ if __name__ == '__main__':
     # x, y pairs
     alt = file['currency tab']['alt']
     aug = file['currency tab']['aug']
+    chance = file['currency tab']['chance']
+    scour = file['currency tab']['scour']
+
     item_in_currency = file['currency tab']['item']
     # pos_needed = ['pos0', 'pos2', 'pos10', 'pos12', 'pos20', 'pos22', 'pos30', 'pos32', 'pos40', 'pos42', 'pos50', 'pos52']
     # pos_needed = ['pos0', 'pos5', 'pos10', 'pos15', 'pos20', 'pos25', 'pos30', 'pos35', 'pos40', 'pos45', 'pos50', 'pos55']
-    pos_needed = ['pos0', 'pos5', 'pos10']
+    # pos_needed = ['pos0', 'pos5', 'pos10']
     # pos_needed = ['pos0','pos10','pos20','pos30','pos40','pos50']
     # pos_needed = ['pos0', 'pos2', 'pos10']
-    # pos_needed = ['pos0', 'pos2']
+    pos_needed = ['pos0', 'pos2']
     items_in_inventory = [file['inventory'][pos] for pos in pos_needed]
     time.sleep(2)
     print("start")
-    # run_alt_spam(alt, aug, item_in_currency, regex)
-    run_inventory_spam(alt, aug, items_in_inventory, regex)
+    # run_currency_spam(alt, aug, item_in_currency, regex)
+    run_currency_spam(chance, scour, item_in_currency, regex)
+    # run_inventory_spam(alt, aug, items_in_inventory, regex)
