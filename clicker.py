@@ -16,7 +16,7 @@ def get_coords():
 
 def take(coords):
     dx, dy = random.randint(-10, 10), random.randint(-10, 10)
-    mouse.move(coords[0]+dx, coords[1]+dy)
+    mouse.move(coords[0] + dx, coords[1] + dy)
     time.sleep(0.015)
     mouse.right_click()
     time.sleep(0.015)
@@ -24,7 +24,7 @@ def take(coords):
 
 def use(coords):
     dx, dy = random.randint(-10, 10), random.randint(-10, 10)
-    mouse.move(coords[0]+dx, coords[1]+dy)
+    mouse.move(coords[0] + dx, coords[1] + dy)
     time.sleep(0.015)
     mouse.click()
     time.sleep(0.015)
@@ -37,7 +37,7 @@ def loop_click(currency, item):
 
 def check_click_with_regex(item, regex):
     dx, dy = random.randint(-10, 10), random.randint(-10, 10)
-    mouse.move(item[0]+dx, item[1]+dy)
+    mouse.move(item[0] + dx, item[1] + dy)
     time.sleep(0.1)
     keyboard.send("ctrl+alt+c")
     time.sleep(0.02)
@@ -68,19 +68,27 @@ def check_min_amont(*args):
     return mn
 
 
-def run_currency_spam(currency1, currency2, item_in_currency, regex):
+def run_currency_spam(currency1, currency2, item_in_currency, regex, check=True):
     i = 0
     mn = check_min_amont(currency1, currency2)
-    while i < mn:
-        if keyboard.is_pressed("space"):
-            break
-        loop_click(currency1, item_in_currency)
-        if check_click_with_regex(item_in_currency, regex):
-            break
-        loop_click(currency2, item_in_currency)
-        if check_click_with_regex(item_in_currency, regex):
-            break
-        i += 1
+    if check:
+        while i < mn:
+            if keyboard.is_pressed("space"):
+                break
+            loop_click(currency1, item_in_currency)
+            if check_click_with_regex(item_in_currency, regex):
+                break
+            loop_click(currency2, item_in_currency)
+            if check_click_with_regex(item_in_currency, regex):
+                break
+            i += 1
+    else:
+        while i < mn:
+            if keyboard.is_pressed("space"):
+                break
+            loop_click(currency1, item_in_currency)
+            loop_click(currency2, item_in_currency)
+            i += 1
 
 
 def run_inventory_spam(alt, aug, items, regex):
@@ -93,13 +101,13 @@ def run_inventory_spam(alt, aug, items, regex):
         loop_click(alt, items[item])
         if check_click_with_regex(items[item], regex):
             item += 1
-            i+=1
+            i += 1
             time.sleep(1)
             continue
         loop_click(aug, items[item])
         if check_click_with_regex(items[item], regex):
             item += 1
-            i+=1
+            i += 1
             time.sleep(1)
             continue
         i += 1
@@ -110,7 +118,6 @@ if __name__ == '__main__':
         file = json.load(f)
     with open("regex_to_find.txt") as f:
         regex = f.read().split('\n')
-
 
     # x, y pairs
     alt = file['currency tab']['alt']
@@ -129,5 +136,5 @@ if __name__ == '__main__':
     time.sleep(2)
     print("start")
     # run_currency_spam(alt, aug, item_in_currency, regex)
-    run_currency_spam(chance, scour, item_in_currency, regex)
+    run_currency_spam(chance, scour, item_in_currency, regex, check=False)
     # run_inventory_spam(alt, aug, items_in_inventory, regex)
