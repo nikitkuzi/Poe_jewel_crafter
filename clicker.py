@@ -57,9 +57,9 @@ def check_min_amont(*args):
     reg = '(Stack Size: )\d,?\d*\/\d.?\d+'
     for item in args:
         mouse.move(item[0], item[1])
-        time.sleep(0.1)
+        time.sleep(0.11)
         keyboard.send("ctrl+c")
-        time.sleep(0.1)
+        time.sleep(0.11)
         size = re.search(reg, clipboard.paste()).group(0)
         # Stack Size: 2,301/20
         amount = int(size.split(":")[1].split('/')[0].replace(',', ''))
@@ -128,13 +128,14 @@ if __name__ == '__main__':
     item_in_currency = file['currency tab']['item']
     # pos_needed = ['pos0', 'pos2', 'pos10', 'pos12', 'pos20', 'pos22', 'pos30', 'pos32', 'pos40', 'pos42', 'pos50', 'pos52']
     # pos_needed = ['pos0', 'pos5', 'pos10', 'pos15', 'pos20', 'pos25', 'pos30', 'pos35', 'pos40', 'pos45', 'pos50', 'pos55']
+    pos_needed = ['pos0', 'pos5', 'pos10', 'pos15', 'pos20', 'pos25', 'pos30', 'pos35']
     # pos_needed = ['pos0', 'pos5', 'pos10']
     # pos_needed = ['pos0','pos10','pos20','pos30','pos40','pos50']
     # pos_needed = ['pos0', 'pos2', 'pos10']
-    pos_needed = ['pos0', 'pos2']
+    # pos_needed = ['pos0', 'pos2']
     items_in_inventory = [file['inventory'][pos] for pos in pos_needed]
     time.sleep(2)
     print("start")
-    # run_currency_spam(alt, aug, item_in_currency, regex)
-    run_currency_spam(chance, scour, item_in_currency, regex, check=False)
-    # run_inventory_spam(alt, aug, items_in_inventory, regex)
+    # run_currency_spam(chance, scour, item_in_currency, regex, check=False)
+    # run_currency_spam(alt, aug, item_in_currency, regex, check=False)
+    run_inventory_spam(alt, aug, items_in_inventory, regex)
