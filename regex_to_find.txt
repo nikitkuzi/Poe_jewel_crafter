@@ -26,11 +26,12 @@
 #Merciless
 #of Acclaim
 #Flaring
-Magister
-Thunderhand
+#Magister
+#Thunderhand
 #Electrocuting
-Runic
-Gain 7(7-8)% of Elemental Damage as Extra Chaos Damage
-Gain 8(7-8)% of Elemental Damage as Extra Chaos Damage
-of Finesse
-of Unmaking
+#Runic
+#Gain 7(7-8)% of Elemental Damage as Extra Chaos Damage
+#Gain 8(7-8)% of Elemental Damage as Extra Chaos Damage
+#of Finesse
+#of Unmaking
++1 to Level of Socketed Skill Gems

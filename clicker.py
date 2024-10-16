@@ -137,5 +137,5 @@ if __name__ == '__main__':
     time.sleep(2)
     print("start")
     # run_currency_spam(chance, scour, item_in_currency, regex, check=False)
-    # run_currency_spam(alt, aug, item_in_currency, regex, check=False)
-    run_inventory_spam(alt, aug, items_in_inventory, regex)
+    run_currency_spam(alt, aug, item_in_currency, regex, check=True)
+    # run_inventory_spam(alt, aug, items_in_inventory, regex)
