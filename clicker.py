@@ -18,7 +18,7 @@ def get_coords():
 
 
 def take(coords):
-    dx, dy = random.randint(-10, 10), random.randint(-10, 10)
+    dx, dy = random.randint(-8, 8), random.randint(-8, 8)
     mouse.move(coords[0] + dx, coords[1] + dy)
     time.sleep(0.015)
     mouse.right_click()
@@ -26,7 +26,7 @@ def take(coords):
 
 
 def use(coords):
-    dx, dy = random.randint(-10, 10), random.randint(-10, 10)
+    dx, dy = random.randint(-8, 8), random.randint(-8, 8)
     mouse.move(coords[0] + dx, coords[1] + dy)
     time.sleep(0.015)
     mouse.click()
@@ -39,14 +39,14 @@ def loop_click(currency, item):
 
 
 def check_click_with_regex(item, regex):
-    dx, dy = random.randint(-10, 10), random.randint(-10, 10)
+    dx, dy = random.randint(-8, 8), random.randint(-8, 8)
     mouse.move(item[0] + dx, item[1] + dy)
     time.sleep(0.1)
     keyboard.send("ctrl+alt+c")
     time.sleep(0.02)
     clip = pyperclip.paste()
 
-    with open("log.txt", 'a') as f:
+    with open("log.txt", 'a', encoding="utf-8") as f:
         f.write(clip)
 
     for reg in regex:
@@ -90,7 +90,7 @@ def run_currency_spam(currency: list[str], tab: str, regex: list[str], check: bo
             for cur in currency_converted:
                 loop_click(cur, item_pos)
                 if check_click_with_regex(item_pos, regex):
-                    break
+                    return
                 i += 1
     else:
         while i < mn:
@@ -120,7 +120,7 @@ def run_inventory_spam(currency: list[str], tab: str, items: list[list[str, str]
                     item += 1
                     i += 1
                     time.sleep(1)
-                    continue
+                    break
                 i += 1
     else:
         while i < mn:
@@ -148,6 +148,7 @@ if __name__ == '__main__':
     items_in_inventory = [pos_for_clicker['inventory'][pos] for pos in pos_needed]
     time.sleep(2)
     print("start")
+
     # run_currency_spam(["chance", "scour"], item_in_currency, regex, check=False, pos_for_clicker=pos_for_clicker)
     # run_currency_spam(["alt", "aug"], "currency tab", regex, check=True, pos_for_clicker=pos_for_clicker)
     run_currency_spam(["Hatred"], "essence tab", regex, check=True, pos_for_clicker=pos_for_clicker)
