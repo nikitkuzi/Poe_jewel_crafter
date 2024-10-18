@@ -13,7 +13,7 @@
 #Seraphim's
 #(92–100)% increased Energy Shield
 #Blazing
-#Vapourising
+Vapourising
 #Crystalising
 #Carbonising
 #Celebration
@@ -34,4 +34,4 @@
 #Gain 8(7-8)% of Elemental Damage as Extra Chaos Damage
 #of Finesse
 #of Unmaking
-+1 to Level of Socketed Skill Gems
+#+1 to Level of Socketed Skill Gems
