@@ -13,7 +13,7 @@
 #Seraphim's
 #(92–100)% increased Energy Shield
 #Blazing
-Vapourising
+#Vapourising
 #Crystalising
 #Carbonising
 #Celebration
@@ -35,4 +35,5 @@ Vapourising
 #of Finesse
 #of Unmaking
 #+1 to Level of Socketed Skill Gems
-of Many
+#of Many
+Tailwind
