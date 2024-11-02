@@ -140,16 +140,16 @@ if __name__ == '__main__':
 
     # pos_needed = ['pos0', 'pos2', 'pos10', 'pos12', 'pos20', 'pos22', 'pos30', 'pos32', 'pos40', 'pos42', 'pos50', 'pos52']
     # pos_needed = ['pos0', 'pos5', 'pos10', 'pos15', 'pos20', 'pos25', 'pos30', 'pos35', 'pos40', 'pos45', 'pos50', 'pos55']
-    pos_needed = ['pos0', 'pos10', 'pos20', 'pos30', 'pos40', "pos50"]
+    # pos_needed = ['pos0', 'pos10', 'pos20', 'pos30', 'pos40', "pos50"]
     # pos_needed = ['pos0', 'pos5', 'pos10']
     # pos_needed = ['pos0','pos10','pos20','pos30','pos40','pos50']
     # pos_needed = ['pos0', 'pos2', 'pos10']
-    # pos_needed = ['pos0', 'pos5']
+    pos_needed = ['pos0', 'pos5']
     items_in_inventory = [pos_for_clicker['inventory'][pos] for pos in pos_needed]
     time.sleep(2)
     print("start")
 
     # run_currency_spam(["chance", "scour"], item_in_currency, regex, check=False, pos_for_clicker=pos_for_clicker)
-    # run_currency_spam(["alt", "aug"], "currency tab", regex, check=True, pos_for_clicker=pos_for_clicker)
+    run_currency_spam(["alt", "aug"], "currency tab", regex, check=True, pos_for_clicker=pos_for_clicker)
     # run_currency_spam(["Hatred"], "essence tab", regex, check=True, pos_for_clicker=pos_for_clicker)
-    run_inventory_spam(["alt", "aug"], "currency tab", items_in_inventory, regex, check=True)
+    # run_inventory_spam(["alt", "aug"], "currency tab", items_in_inventory, regex, check=True)
