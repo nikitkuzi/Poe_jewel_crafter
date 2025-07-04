@@ -28,9 +28,9 @@ def take(coords):
 def use(coords):
     dx, dy = random.randint(-8, 8), random.randint(-8, 8)
     mouse.move(coords[0] + dx, coords[1] + dy)
-    time.sleep(0.015)
+    time.sleep(0.01)
     mouse.click()
-    time.sleep(0.015)
+    time.sleep(0.01)
 
 
 def loop_click(currency, item):
