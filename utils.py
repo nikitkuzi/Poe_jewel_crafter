@@ -11,7 +11,7 @@ from json.decoder import JSONDecodeError
 
 
 class CoordsGenerator:
-    supported_coords = {"inventory": "_get_inventory_coords"}
+    supported_coords = {"inventory": "_get_inventory_coords", "quad_tab": "_get_quad_coords"}
 
     def __init__(self, target_to_chage: str, json_file: json = None):
         if target_to_chage not in self.supported_coords:
@@ -31,6 +31,16 @@ class CoordsGenerator:
         new_coords = {}
         for i in range(12):
             for j in range(5):
+                new_coords[f"pos{i * 5 + j}"] = [x_coord_middle + shift * i, y_coord_middle + shift * j]
+        return new_coords
+
+    def _get_quad_coords(self) -> dict[str, list[int, int]]:
+        x_coord_middle = 39
+        y_coord_middle = 186
+        shift = 34
+        new_coords = {}
+        for i in range(24):
+            for j in range(24):
                 new_coords[f"pos{i * 5 + j}"] = [x_coord_middle + shift * i, y_coord_middle + shift * j]
         return new_coords
 
@@ -63,4 +73,5 @@ def change_coords(target_to_change: str) -> None:
         print(f"Updated coords of {target_to_change} successfully")
 
 
-change_coords("inventory")
+# change_coords("inventory")
+change_coords("quad_tab")
