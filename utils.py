@@ -29,19 +29,22 @@ class CoordsGenerator:
         y_coord_middle = 818
         shift = 70
         new_coords = {}
-        for i in range(12):
-            for j in range(5):
-                new_coords[f"pos{i * 5 + j}"] = [x_coord_middle + shift * i, y_coord_middle + shift * j]
+        cols = 12
+        rows = 5
+        for i in range(cols):
+            for j in range(rows):
+                new_coords[f"pos{i * rows + j}"] = [x_coord_middle + shift * i, y_coord_middle + shift * j]
         return new_coords
 
     def _get_quad_coords(self) -> dict[str, list[int, int]]:
-        x_coord_middle = 39
-        y_coord_middle = 186
-        shift = 34
+        x_coord_middle = 40
+        y_coord_middle = 187
+        shift = 35
+        n = 24
         new_coords = {}
-        for i in range(24):
-            for j in range(24):
-                new_coords[f"pos{i * 5 + j}"] = [x_coord_middle + shift * i, y_coord_middle + shift * j]
+        for i in range(n):
+            for j in range(n):
+                new_coords[f"pos{i * n + j}"] = [x_coord_middle + shift * i, y_coord_middle + shift * j]
         return new_coords
 
 
